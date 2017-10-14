@@ -1,1 +1,4 @@
 #some untracked files will be added here
+
+# untrack files created by phpStorm
+.idea/
