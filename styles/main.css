@@ -1,14 +1,108 @@
-p{
-    font-family: 'helvetica neue', helvetica, sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-    border: 2px solid rgba(0,0,200,0.6);
-    background: rgba(0,0,200,0.3);
-    color: rgba(0,0,200,0.6);
-    box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
-    border-radius: 10px;
-    padding: 3px 10px;
-    display: inline-block;
-    cursor:pointer;
+body{
+    width: 1200px;
+    margin: 2em auto;
+    font-family: 'Montserrat', sans-serif;
+    /*The font smooth is no longer on the CSS specification so it wont work for all users. */
+    font-smooth: always;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: #000000;
+}
+
+form{
+    display: grid;
+    grid-template-columns: [left] 5fr [middle-left] 0.2fr [middle-right] 5fr [right];
+    grid-template-rows: [top] 10fr [top-center] 1fr [bottom-center] 10fr [bottom];
+}
+
+form fieldset:first-child{  /* Card Preview */
+    grid-column: left / middle-left;
+    grid-row: top / top-center;
+}
+
+.card_area{
+    margin: 0.5em;
+    display: grid;
+    grid-template-columns: [left] 5fr [middle-left] 0.1fr [middle-right] 7fr [right];
+    grid-template-rows: [top] 3fr [top-center] 0.2fr [bottom-center] 2fr [bottom];
+}
+
+form fieldset:first-child img{
+    grid-column: left / middle-left;
+    grid-row: top / top-center;
+}
+
+form fieldset:first-child ul{
+    grid-column: middle-right / right;
+    grid-row: top / top-center;
+    margin-top: 2em;
+}
+form fieldset:first-child ul li:nth-child(n+2){
+    margin-top: 0.5em;
+}
+
+form fieldset:first-child p{
+    grid-column: left / right;
+    grid-row: bottom-center / bottom;
+    margin-left: 1em;
+}
+
+form fieldset:nth-child(2){ /* Drop Images */
+    grid-column: middle-right / right;
+    grid-row: top / top-center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+form fieldset:nth-child(2) strong{
+    z-index: -10;
+}
+
+form fieldset:nth-child(2) div{
+    width: 12.5em;
+    height: 12.5em;
+    margin: 2em;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: darkgray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+form fieldset:nth-child(3){ /* Text Fields */
+    grid-column: left / middle-left;
+    grid-row: bottom-center / bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+form fieldset:nth-child(3) input, form fieldset:nth-child(3) select{
+    width: 32em;
+}
+
+form fieldset:nth-child(3) input[type=submit]{
+    width: 32em;
+    margin-top: 1.6em;
+    font-weight: bold;
+    border: 1px solid #f4f0f5;
+    color: #ffffff;
+    background-color: deepskyblue;
+    border-radius: 5px;
+    padding:0.6em 0.6em;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+form fieldset:nth-child(3) button{
+    margin-top: 5em;
+    cursor: pointer;
+}
+
+form fieldset:nth-child(4){ /* Output */
+    grid-column: middle-right / right;
+    grid-row: bottom-center / bottom;
 }
